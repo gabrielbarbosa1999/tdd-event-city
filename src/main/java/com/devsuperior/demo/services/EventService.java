@@ -8,6 +8,7 @@ import com.devsuperior.demo.repositories.EventRepository;
 import com.devsuperior.demo.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class EventService {
@@ -18,6 +19,7 @@ public class EventService {
     @Autowired
     private CityRepository cityRepository;
 
+    @Transactional
     public EventDTO update(Long id, EventDTO eventDTO) {
         Event event = eventRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Event not found."));
         City city = cityRepository.findById(eventDTO.getCityId()).orElseThrow(() -> new ResourceNotFoundException("City not found."));
