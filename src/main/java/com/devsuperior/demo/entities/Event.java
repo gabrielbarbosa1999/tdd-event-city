@@ -2,6 +2,7 @@ package com.devsuperior.demo.entities;
 
 import java.time.LocalDate;
 
+import com.devsuperior.demo.dto.EventDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -73,6 +74,13 @@ public class Event {
 	}
 
 	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public void update(EventDTO eventDTO, City city) {
+		this.name = eventDTO.getName();
+		this.date = eventDTO.getDate();
+		this.url = eventDTO.getUrl();
 		this.city = city;
 	}
 }
