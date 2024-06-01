@@ -1,7 +1,5 @@
 package com.devsuperior.demo.controllers.controller_advice;
 
-import org.springframework.http.HttpStatus;
-
 public class ErrorDTO {
 
     private String message;
